@@ -13,5 +13,5 @@ The **Java Coding Events Platform** is a web application designed to help develo
 ## 🛠 Tech Stack
 - **Backend**: Java, Spring Boot, Spring MVC, Hibernate
 - **Frontend**: Thymeleaf, HTML, CSS, JavaScript
-- **Database**: H2 / MySQL
+- **Database**: MySQL
 - **Build Tool**: Gradle
