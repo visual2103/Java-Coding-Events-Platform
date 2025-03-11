@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang ="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class ="container">
+<h1>Create Event</h1>
+<nav th:replace="fragments :: header"></nav>
+
+<!-- <p th:text="${errorMsg}" style="color:red"></p> --> <!--nu ne mai trebuie-->
+
+<form method="post" action="/events/create">
+    <div class="form-group">
+        <label>Name
+            <input th:field="${event.name}" class="form-control"> <!-- I want an input to correspond the name atribute -->
+        </label>
+        <p class="error" th:errors="${event.name}"></p>
+    </div>
+    <div class="form-group">
+        <label>Description
+            <input th:field="${event.eventDetails.description}" class="form-control">  <!-- name and description has to mach up with name and description from Event class. they must have the same name -->
+        </label>
+        <p class="error" th:errors="${event.eventDetails.description}"></p>
+    </div>
+    <div class="form-group">
+        <label>Contact Email
+            <input th:field="${event.eventDetails.contactEmail}" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.eventDetails.contactEmail}"></p>
+    </div>
+    <div class="form-group">
+        <label>Category
+        <select th:field="${event.eventCategory}">
+            <option th:each="eventCategory : ${categories}"
+                    th:value="${eventCategory.id}"
+                    th:text="${eventCategory.name}">
+            </option>
+        </select>
+            <p class="error" th:errors="${event.eventCategory}"></p>
+        </label>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-success">
+    </div>
+</form>
+
+</body>
+</html>
+
